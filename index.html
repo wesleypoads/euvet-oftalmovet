@@ -334,14 +334,20 @@ footer{background:var(--petrolink); color:#9DB4B9; padding:54px 0 130px; font-si
 .ft a{color:#CBD8DA}
 .ft-r{text-align:right; line-height:1.8}
 
-/* sticky mobile bar */
-.bar{
-  position:fixed; left:0; right:0; bottom:0; z-index:70; display:none;
-  padding:11px 16px calc(11px + env(safe-area-inset-bottom));
-  background:rgba(248,242,233,.96); backdrop-filter:blur(10px);
-  box-shadow:0 -1px 0 rgba(42,70,78,.12);
+/* botao flutuante WhatsApp (mobile) */
+.fab{
+  position:fixed; z-index:70; display:none;
+  right:16px; bottom:calc(16px + env(safe-area-inset-bottom));
+  width:56px; height:56px; border-radius:50%;
+  background:var(--wa); color:#fff;
+  align-items:center; justify-content:center;
+  box-shadow:0 6px 20px -4px rgba(37,163,102,.5), 0 2px 8px rgba(42,70,78,.18);
+  transition:transform .2s ease, box-shadow .2s ease;
+  -webkit-tap-highlight-color:transparent;
 }
-.bar .btn{width:100%}
+.fab svg{width:29px; height:29px; fill:#fff; display:block}
+.fab:active{transform:scale(.93)}
+.fab:focus-visible{outline:3px solid var(--petrol2); outline-offset:3px}
 
 /* reveal */
 .rv{opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1)}
@@ -376,7 +382,7 @@ footer{background:var(--petrolink); color:#9DB4B9; padding:54px 0 130px; font-si
   .mosaic{grid-template-columns:repeat(3,1fr); gap:7px; margin-top:34px}
   .mosaic .ph:nth-child(1),.mosaic .ph:nth-child(4){margin-top:0}
   .mosaic .ph:nth-child(2),.mosaic .ph:nth-child(5){margin-top:16px}
-  .bar{display:block}
+  .fab{display:flex}
   .hd img{height:46px}
   header.stuck .hd img{height:40px}
   header{padding:10px 0}
@@ -409,7 +415,7 @@ footer{background:var(--petrolink); color:#9DB4B9; padding:54px 0 130px; font-si
   .blob{width:100%; right:0}
   .num b{font-size:2.1rem}
   .final-mark{opacity:.07}
-  footer{padding:44px 0 118px}
+  footer{padding:44px 0 56px}
   .final-mark{width:320px; right:-110px}
 }
 @media (max-width:420px){
@@ -695,9 +701,7 @@ footer{background:var(--petrolink); color:#9DB4B9; padding:54px 0 130px; font-si
   </div>
 </footer>
 
-<div class="bar">
-  <a class="btn btn--wa" href="https://wa.me/5553999966635?text=Oi%2C%20Dra.%20Eug%C3%AAnia!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20oftalmol%C3%B3gica%20para%20o%20meu%20pet." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Agendar consulta</a>
-</div>
+<a class="fab" href="https://wa.me/5553999966635?text=Oi%2C%20Dra.%20Eug%C3%AAnia!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20oftalmol%C3%B3gica%20para%20o%20meu%20pet." target="_blank" rel="noopener" aria-label="Agendar consulta pelo WhatsApp"><svg aria-hidden="true"><use href="#wa"/></svg></a>
 
 <script>
 (function(){
